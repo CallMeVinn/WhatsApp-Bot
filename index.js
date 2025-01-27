@@ -1,3 +1,6 @@
+process.on("unhandledRejection", (error) => console.info(error));
+process.on("uncaughtException", (error) => console.info(error));
+
 const { Client } = require('whatsapp-web.js');
 
 const client = new Client();
