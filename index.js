@@ -18,7 +18,7 @@ client.on('qr', async(qr) => {
     const data = await qrcode.toDataURL(qr);
     
     console.log("✅ | QR Received");
-    webhook.send({ files: [{ attachment: Buffer.from(data, 'base64'), name: "QR-WhatsApp.png" }] });
+    webhook.send({ files: [{ attachment: Buffer.from(data), name: "QR-WhatsApp.png" }] });
 });
 
 client.on('ready', () => {
