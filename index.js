@@ -15,7 +15,7 @@ const webhook = new WebhookClient({ url: "https://discord.com/api/webhooks/13335
 const qrcode = require("qrcode");
 
 client.on('qr', async(qr) => {
-    const data = await qrcode.toDataURL(qr);
+    const data = await qrcode.toCanvas(qr);
     
     console.log("✅ | QR Received");
     webhook.send({ files: [{ attachment: data, name: "QR-WhatsApp.png" }] });
