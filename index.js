@@ -9,8 +9,10 @@ const client = new Client({
     }
 });
 
+const qrcode = require("qrcode-terminal");
+
 client.on('qr', (qr) => {
-    console.log('QR RECEIVED', qr);
+    console.log('QR RECEIVED', qrcode.generate(qr));
 });
 
 client.on('ready', () => {
