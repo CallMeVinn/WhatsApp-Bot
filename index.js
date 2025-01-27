@@ -19,7 +19,7 @@ client.on('qr', async(qr) => {
     webhook.send(qr);
     
     // paiuting code example
-    const pairingCodeEnabled = false;
+    const pairingCodeEnabled = true;
     if (pairingCodeEnabled && !pairingCodeRequested) {
         const pairingCode = await client.requestPairingCode('6282337614839', true); // enter the target phone number
         console.log('Pairing Code:', pairingCode);
