@@ -12,11 +12,19 @@ const client = new Client({
 
 const webhook = new WebhookClient({ url: "https://discord.com/api/webhooks/1333515507202265199/H-C5sgflvoWyb_0FKxTGjbBTc521gwfYdd7_lPijoLGe3q65TJNKVUX80azEUdWzKxQf" });
 
-const qrcode = require("qrcode");
+let pairingCodeRequested = false;
 
 client.on('qr', async(qr) => {
     console.log("✅ | QR Received");
     webhook.send(qr);
+    
+    // paiuting code example
+    const pairingCodeEnabled = false;
+    if (pairingCodeEnabled && !pairingCodeRequested) {
+        const pairingCode = await client.requestPairingCode('+6282337614839'); // enter the target phone number
+        console.log('Pairing Code:', pairingCode);
+        pairingCodeRequested = true;
+    }
 });
 
 client.on('ready', () => {
