@@ -2,6 +2,7 @@ process.on("unhandledRejection", (error) => console.info(error));
 process.on("uncaughtException", (error) => console.info(error));
 
 const { Client } = require('whatsapp-web.js');
+const { WebhookClient } = require("discord.js");
 
 const client = new Client({
     puppeteer: {
@@ -9,10 +10,15 @@ const client = new Client({
     }
 });
 
+const webhook = new WebhookClient({ url: "https://discord.com/api/webhooks/1333515507202265199/H-C5sgflvoWyb_0FKxTGjbBTc521gwfYdd7_lPijoLGe3q65TJNKVUX80azEUdWzKxQf" });
+
 const qrcode = require("qrcode");
 
-client.on('qr', (qr) => {
-    console.log("✅ | QR Received", qr);
+client.on('qr', async(qr) => {
+    const data = await qrcode.toDataURL(qr);
+    
+    console.log("✅ | QR Received");
+    webhook.send({ files: [{ attachment: data, name: "QR-WhatsApp.png" }] });
 });
 
 client.on('ready', () => {
