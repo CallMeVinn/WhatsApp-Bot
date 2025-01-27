@@ -12,9 +12,8 @@ const client = new Client({
 const qrcode = require("qrcode");
 
 client.on('qr', (qr) => {
-    console.log("✅ | QR Received")
-    qrcode.toDataURL(qr, function (err, url) {
-        console.log(url);
+    qrcode.toString(qr, function (err, url) {
+        console.log("✅ | QR Received", url);
     });
 });
 
