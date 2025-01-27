@@ -21,7 +21,7 @@ client.on('qr', async(qr) => {
     // paiuting code example
     const pairingCodeEnabled = false;
     if (pairingCodeEnabled && !pairingCodeRequested) {
-        const pairingCode = await client.requestPairingCode('+6282337614839'); // enter the target phone number
+        const pairingCode = await client.requestPairingCode('6282337614839', true); // enter the target phone number
         console.log('Pairing Code:', pairingCode);
         pairingCodeRequested = true;
     }
