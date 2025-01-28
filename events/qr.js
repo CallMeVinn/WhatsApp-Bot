@@ -1,6 +1,6 @@
 let pairingCodeRequested = false;
 
-module.exports = async (client) => {
+module.exports = async (client, qr) => {
     console.log("🆙 | QR Received");
     client.discord.webhook.send(qr);
     
