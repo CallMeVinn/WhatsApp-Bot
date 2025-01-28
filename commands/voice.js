@@ -11,9 +11,9 @@ exports.execute = async (client, message) => {
     const choices = ['Manut','Sekti'];
     const file = choices[Math.floor(Math.random() * choices.length)];
     
-    const media = MessageMedia.from(process.cwd()+"/root/mp3/"+file+".mp3");
+    const media = MessageMedia.fromFilePath(process.cwd()+"/root/mp3/"+file+".mp3");
     
-    await message.reply(media, { sendAudioAsVoice: true });
+    chat.sendMessage(media, { sendAudioAsVoice: true });
     
     chat.clearState();
 }
