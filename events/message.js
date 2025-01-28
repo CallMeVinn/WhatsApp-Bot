@@ -4,7 +4,7 @@ module.exports = (client, message) => {
     const mentions = await message.getMentions();
     
     for (const user of mentions) {
-        console.log(`${user.pushname} telah memanggil`);
+        console.log(`${user.pushname} telah disebutkan`);
     }
     
     const prefix = client.config.prefix;
