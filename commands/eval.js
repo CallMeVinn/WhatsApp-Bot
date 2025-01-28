@@ -3,7 +3,7 @@ const { inspect } = require("node:util");
 exports.description = "Sssstttt!";
 exports.private = true;
 
-exports.execute = async(client, message, args) => {
+exports.execute = async (client, message, args) => {
     if (!args.length) return;
         
     const code = args.join(" ");

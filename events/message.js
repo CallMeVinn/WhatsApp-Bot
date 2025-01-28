@@ -1,4 +1,4 @@
-module.exports = (client, message) => {
+module.exports = async (client, message) => {
     const content = message.body;
     
     const mentions = await message.getMentions();
