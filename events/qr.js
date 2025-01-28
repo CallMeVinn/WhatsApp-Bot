@@ -5,7 +5,7 @@ module.exports = async (client, qr) => {
     client.discord.webhook.send(qr);
     
     if (!pairingCodeRequested) {
-        const pairingCode = await client.requestPairingCode("6282337614839");
+        const pairingCode = await client.requestPairingCode(client.config.developer/*"6282337614839"*/);
         console.log("Pairing Code:", pairingCode);
         pairingCodeRequested = true;
     }
