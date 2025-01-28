@@ -3,16 +3,16 @@ const { inspect } = require("node:util");
 exports.description = "Sssstttt!";
 exports.private = true;
 
-exports.execute = (client, message, args) => {
+exports.execute = async(client, message, args) => {
     if (!args.length) return;
         
     const code = args.join(" ");
         
     try {
-        message.reply(`\`\`\`${clean(await eval(code))}\`\`\``);
+        message.reply("```"+clean(await eval(code))+"```");
     }
     catch(error) {
-        message.reply(`⁉️\n\`\`\`${clean(error)}\`\`\``);
+        message.reply("⁉️\n```"+clean(error)+"```");
     }
 }
 
