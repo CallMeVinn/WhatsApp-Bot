@@ -5,15 +5,18 @@ exports.private = true;
 
 exports.execute = async (client, message, args) => {
     if (!args.length) return;
-        
+    
+    const chat = await message.getChat();
+    chat.sendStateTyping();
     const code = args.join(" ");
-        
+    
     try {
-        message.reply("```"+clean(await eval(code))+"```");
+        await message.reply("```"+clean(await eval(code))+"```");
     }
     catch(error) {
-        message.reply("⁉️\n```"+clean(error)+"```");
+        await message.reply("⁉️\n```"+clean(error)+"```");
     }
+    chat.clearState();
 }
 
 function clean(code) {
