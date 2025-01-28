@@ -21,7 +21,7 @@ module.exports = async (client, message) => {
     
     if (!query.length) return;
     
-    const commands = client.commands.cache.get(query);
+    const commands = client.commands.get(query);
     
     if (!commands) return;
     
